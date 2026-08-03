@@ -6,7 +6,7 @@ export function errorHandler(
   error: Error,
   _req: Request,
   res: Response,
-  _next: NextFunction
+  _next: NextFunction,
 ): void {
   if (error instanceof ZodError) {
     res.status(400).json({

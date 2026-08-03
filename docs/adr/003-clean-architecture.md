@@ -30,11 +30,11 @@ Route → Controller → Service → Repository
 
 ## Alternativas consideradas
 
-| Alternativa | Motivo da rejeição |
-|-------------|-------------------|
-| Tudo em uma rota | Funciona para MVP mas não escala para equipe futura |
-| Hexagonal completa | Ports/adapters com interfaces seria overengineering para um endpoint |
-| NestJS (built-in DI) | Dependência pesada demais para o escopo |
+| Alternativa          | Motivo da rejeição                                                   |
+| -------------------- | -------------------------------------------------------------------- |
+| Tudo em uma rota     | Funciona para MVP mas não escala para equipe futura                  |
+| Hexagonal completa   | Ports/adapters com interfaces seria overengineering para um endpoint |
+| NestJS (built-in DI) | Dependência pesada demais para o escopo                              |
 
 ## Consequências
 

@@ -24,12 +24,12 @@ O cliente precisa de um formulário de cadastro com persistência em banco de da
 
 ## Alternativas consideradas
 
-| Alternativa | Motivo da rejeição |
-|-------------|-------------------|
-| NestJS | Overhead de abstração para um único endpoint |
-| MongoDB | Cliente especificou PostgreSQL |
-| Next.js | SSR desnecessário para formulário simples |
-| Prisma ORM | Camada adicional sem benefício claro para uma tabela |
+| Alternativa | Motivo da rejeição                                   |
+| ----------- | ---------------------------------------------------- |
+| NestJS      | Overhead de abstração para um único endpoint         |
+| MongoDB     | Cliente especificou PostgreSQL                       |
+| Next.js     | SSR desnecessário para formulário simples            |
+| Prisma ORM  | Camada adicional sem benefício claro para uma tabela |
 
 ## Consequências
 

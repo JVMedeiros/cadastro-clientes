@@ -37,10 +37,7 @@ function isValidCPF(cpf: string): boolean {
 }
 
 export const clientSchema = z.object({
-  fullName: z
-    .string()
-    .min(3, "Nome deve ter pelo menos 3 caracteres")
-    .max(255, "Nome muito longo"),
+  fullName: z.string().min(3, "Nome deve ter pelo menos 3 caracteres").max(255, "Nome muito longo"),
   cpf: z
     .string()
     .regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, "CPF deve estar no formato 000.000.000-00")

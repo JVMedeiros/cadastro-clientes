@@ -38,6 +38,7 @@ cadastro-clientes/
 Cria um novo cliente.
 
 **Request body:**
+
 ```json
 {
   "fullName": "João da Silva",
@@ -49,6 +50,7 @@ Cria um novo cliente.
 ```
 
 **Sucesso (201):**
+
 ```json
 {
   "success": true,
@@ -58,6 +60,7 @@ Cria um novo cliente.
 ```
 
 **Erro — dados inválidos (400):**
+
 ```json
 {
   "success": false,
@@ -67,6 +70,7 @@ Cria um novo cliente.
 ```
 
 **Erro — duplicata (409):**
+
 ```json
 {
   "success": false,
@@ -80,13 +84,13 @@ Retorna as cores disponíveis.
 
 ## 📋 Campos e validações
 
-| Campo         | Tipo     | Obrigatório | Validação                                          |
-|---------------|----------|-------------|-----------------------------------------------------|
-| Nome completo | texto    | ✅          | Mín. 3, máx. 255 caracteres                        |
-| CPF           | texto    | ✅          | Formato `000.000.000-00` + dígitos verificadores    |
-| E-mail        | email    | ✅          | Formato válido + único no sistema                   |
-| Cor preferida | seleção  | ✅          | Cores do arco-íris (configurável)                   |
-| Observações   | textarea | ❌          | Máx. 1000 caracteres                                |
+| Campo         | Tipo     | Obrigatório | Validação                                        |
+| ------------- | -------- | ----------- | ------------------------------------------------ |
+| Nome completo | texto    | ✅          | Mín. 3, máx. 255 caracteres                      |
+| CPF           | texto    | ✅          | Formato `000.000.000-00` + dígitos verificadores |
+| E-mail        | email    | ✅          | Formato válido + único no sistema                |
+| Cor preferida | seleção  | ✅          | Cores do arco-íris (configurável)                |
+| Observações   | textarea | ❌          | Máx. 1000 caracteres                             |
 
 **Cores disponíveis:** Vermelho, Laranja, Amarelo, Verde, Azul, Anil, Violeta
 
@@ -103,6 +107,7 @@ cd frontend && npm test
 ```
 
 **Cobertura:**
+
 - Backend: validação de CPF (formato, dígitos, repetição), email, cores, campos obrigatórios
 - Frontend: renderização do formulário, máscara de CPF, feedback de sucesso/erro/rede
 
@@ -133,11 +138,11 @@ npm run dev        # Inicia em http://localhost:5173 (com proxy para API)
 
 A aplicação roda com 3 containers:
 
-| Serviço    | Porta | Descrição                       |
-|------------|-------|---------------------------------|
-| `frontend` | 80    | Nginx servindo SPA + proxy API  |
-| `backend`  | 3001  | Express API                     |
-| `db`       | 5432  | PostgreSQL 16                   |
+| Serviço    | Porta | Descrição                      |
+| ---------- | ----- | ------------------------------ |
+| `frontend` | 80    | Nginx servindo SPA + proxy API |
+| `backend`  | 3001  | Express API                    |
+| `db`       | 5432  | PostgreSQL 16                  |
 
 ```bash
 docker compose up --build    # Primeira vez (build + start)
@@ -149,12 +154,12 @@ docker compose down -v       # Parar + remover dados
 ## 🧰 Tecnologias
 
 | Camada   | Tecnologias                                           |
-|----------|-------------------------------------------------------|
+| -------- | ----------------------------------------------------- |
 | Frontend | React 18, TypeScript, Vite, React Hook Form, Zod      |
-| Backend  | Node.js, Express, TypeScript, Zod, node-postgres (pg)  |
-| Banco    | PostgreSQL 16                                          |
-| Infra    | Docker, Docker Compose, Nginx                          |
-| Testes   | Vitest, Testing Library                                |
+| Backend  | Node.js, Express, TypeScript, Zod, node-postgres (pg) |
+| Banco    | PostgreSQL 16                                         |
+| Infra    | Docker, Docker Compose, Nginx                         |
+| Testes   | Vitest, Testing Library                               |
 
 ## 📝 Decisões técnicas
 

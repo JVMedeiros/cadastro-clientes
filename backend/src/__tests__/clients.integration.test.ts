@@ -8,7 +8,8 @@ import { ClientController } from "../controllers/client.controller.js";
 import { createClientRouter } from "../routes/clients.js";
 import { errorHandler } from "../middleware/error-handler.js";
 
-const TEST_DB_URL = process.env.TEST_DATABASE_URL || "postgresql://postgres:postgres@localhost:5432/aetheryn_test";
+const TEST_DB_URL =
+  process.env.TEST_DATABASE_URL || "postgresql://postgres:postgres@localhost:5432/aetheryn_test";
 
 const validClient = {
   fullName: "João da Silva",
@@ -73,10 +74,12 @@ describe("POST /api/clients (integration)", () => {
   it("rejects duplicate CPF with 409", async () => {
     await request(app).post("/api/clients").send(validClient);
 
-    const res = await request(app).post("/api/clients").send({
-      ...validClient,
-      email: "outro@example.com",
-    });
+    const res = await request(app)
+      .post("/api/clients")
+      .send({
+        ...validClient,
+        email: "outro@example.com",
+      });
 
     expect(res.status).toBe(409);
     expect(res.body.success).toBe(false);
@@ -86,10 +89,12 @@ describe("POST /api/clients (integration)", () => {
   it("rejects duplicate email with 409", async () => {
     await request(app).post("/api/clients").send(validClient);
 
-    const res = await request(app).post("/api/clients").send({
-      ...validClient,
-      cpf: "987.654.321-00",
-    });
+    const res = await request(app)
+      .post("/api/clients")
+      .send({
+        ...validClient,
+        cpf: "987.654.321-00",
+      });
 
     expect(res.status).toBe(409);
     expect(res.body.success).toBe(false);

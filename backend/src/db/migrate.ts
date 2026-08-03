@@ -17,7 +17,8 @@ export async function migrate(): Promise<void> {
   console.log("Migration completed successfully");
 }
 
-const isDirectRun = process.argv[1]?.endsWith("migrate.ts") || process.argv[1]?.endsWith("migrate.js");
+const isDirectRun =
+  process.argv[1]?.endsWith("migrate.ts") || process.argv[1]?.endsWith("migrate.js");
 if (isDirectRun) {
   migrate()
     .then(() => process.exit(0))

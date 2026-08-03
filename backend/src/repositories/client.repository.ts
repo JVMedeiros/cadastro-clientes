@@ -19,7 +19,7 @@ export class ClientRepository {
       `INSERT INTO clients (full_name, cpf, email, favorite_color, notes)
        VALUES ($1, $2, $3, $4, $5)
        RETURNING id`,
-      [data.fullName, data.cpf, data.email, data.favoriteColor, data.notes]
+      [data.fullName, data.cpf, data.email, data.favoriteColor, data.notes],
     );
 
     return result.rows[0].id;

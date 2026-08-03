@@ -8,8 +8,7 @@ function formatCPF(value: string): string {
   const digits = value.replace(/\D/g, "").slice(0, 11);
   if (digits.length <= 3) return digits;
   if (digits.length <= 6) return `${digits.slice(0, 3)}.${digits.slice(3)}`;
-  if (digits.length <= 9)
-    return `${digits.slice(0, 3)}.${digits.slice(3, 6)}.${digits.slice(6)}`;
+  if (digits.length <= 9) return `${digits.slice(0, 3)}.${digits.slice(3, 6)}.${digits.slice(6)}`;
   return `${digits.slice(0, 3)}.${digits.slice(3, 6)}.${digits.slice(6, 9)}-${digits.slice(9)}`;
 }
 
@@ -87,9 +86,7 @@ export function ClientForm() {
           {...register("fullName")}
           aria-invalid={!!errors.fullName}
         />
-        {errors.fullName && (
-          <span className="error">{errors.fullName.message}</span>
-        )}
+        {errors.fullName && <span className="error">{errors.fullName.message}</span>}
       </div>
 
       <div className="form-group">
@@ -135,9 +132,7 @@ export function ClientForm() {
             </option>
           ))}
         </select>
-        {errors.favoriteColor && (
-          <span className="error">{errors.favoriteColor.message}</span>
-        )}
+        {errors.favoriteColor && <span className="error">{errors.favoriteColor.message}</span>}
       </div>
 
       <div className="form-group">

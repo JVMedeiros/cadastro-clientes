@@ -16,28 +16,31 @@ O cliente informou que o primo "vai hospedar isso" usando Docker em "um serviço
 ## Justificativa
 
 ### Multi-stage builds
+
 - Stage de build instala todas as dependências e compila
 - Stage de produção copia apenas os artefatos necessários
 - Resultado: imagens menores, sem devDependencies, sem código-fonte TypeScript
 
 ### Nginx como proxy reverso
+
 - Frontend e API respondem na **mesma origem** (porta 80)
 - Elimina problemas de CORS em produção
 - Nginx serve arquivos estáticos com performance superior ao Node
 - Configuração de fallback (`try_files`) suporta SPA routing
 
 ### Docker Compose
+
 - Um único `docker compose up` sobe toda a stack
 - Healthcheck no PostgreSQL garante que o backend só inicia quando o banco está pronto
 - Volume nomeado (`pgdata`) persiste dados entre restarts
 
 ## Alternativas consideradas
 
-| Alternativa | Motivo da rejeição |
-|-------------|-------------------|
-| Kubernetes | Complexidade injustificada para uma aplicação simples |
-| Serve estático via Express | Performance inferior ao Nginx para arquivos estáticos |
-| Imagem única (monolito) | Viola separação de responsabilidades, builds mais lentos |
+| Alternativa                | Motivo da rejeição                                       |
+| -------------------------- | -------------------------------------------------------- |
+| Kubernetes                 | Complexidade injustificada para uma aplicação simples    |
+| Serve estático via Express | Performance inferior ao Nginx para arquivos estáticos    |
+| Imagem única (monolito)    | Viola separação de responsabilidades, builds mais lentos |
 
 ## Consequências
 
